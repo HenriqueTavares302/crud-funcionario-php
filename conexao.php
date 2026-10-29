@@ -1,12 +1,14 @@
 <?php
 $servidor = "localhost:3307";
-$usuario = "root";
-$senha = "";
-$bd = "empresa";
+$usuario  = "root";
+$senha    = "";
+$bd       = "empresa";
 
-$conexao = mysqli_connect($servidor, $usuario, $senha, $bd);
+$result = mysqli_connect($servidor, $usuario, $senha, $bd);
 
-if (!$conexao) {
-    echo "Erro na conexao";
+if (!$result) {
+    die("Erro ao conectar: " . mysqli_connect_error());
 }
+
+// echo "Conexao realizada com sucesso";
 ?>
