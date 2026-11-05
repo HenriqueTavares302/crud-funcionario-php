@@ -48,8 +48,14 @@ $funcionario = mysqli_fetch_assoc($lista);
             <div class="mb-3">
                 <label for="data_admissao" class="form-label">Admissao:</label>
                 <input type="date" class="form-control" id="data_admissao" name="data_admissao" value="<?php echo $funcionario['data_admissao']; ?>" required>
-            </div>
 
+            </div>
+            <div> 
+                <label for="ativo" class="form-label">Ativo:</label>
+                <input type="checkbox" class="form-check-input" id="ativo" name="ativo" <?php if ($funcionario['ativo'] == 1) echo 'checked'; ?>>
+          </div>
+
+            <input type="hidden" name="id" value="<?php echo $funcionario['id']; ?>">
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
     </div>
