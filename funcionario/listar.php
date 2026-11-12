@@ -41,7 +41,27 @@ $lista = mysqli_query($conexao, $sql);
                     <td><?php echo $linha['data_admissao']; ?></td>
                     <td>
                         <a href="editar.php?id=<?php echo $linha['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="remover.php?id=<?php echo $linha['id']; ?>" class="btn btn-danger btn-sm">Remover</a>
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalremover<?php echo $linha['id']; ?>">
+                            Remover
+                        </button>
+
+                        <div class="modal fade" id="modalremover<?php echo $linha['id']; ?>" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Remover funcionário</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza que deseja remover o funcionário <strong><?php echo $linha['nome']; ?></strong>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <a href="remover.php?id=<?php echo $linha['id']; ?>" class="btn btn-danger">Remover</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             <?php
