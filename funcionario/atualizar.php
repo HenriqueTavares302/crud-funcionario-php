@@ -7,10 +7,19 @@ $email = $_POST['email'];
 $cargo = $_POST['cargo'];
 $salario = $_POST['salario'];
 $data_admissao = $_POST['data_admissao'];
+$ativo = 0;
+if (isset($_POST['ativo'])) {
+    $ativo = 1;
+}
 
-$sql = "update funcionario set nome = '$nome', email = '$email', cargo = '$cargo', salario = '$salario', data_admissao = '$data_admissao' where id = $id";
+$sql = "update funcionario set nome = '$nome', email = '$email', cargo = '$cargo', salario = '$salario', data_admissao = '$data_admissao', ativo = '$ativo' where id = $id";
 
-mysqli_query($result, $sql);
+$result = mysqli_query($conexao, $sql);
 
-header("Location: listar.php");
+if ($result == true) {
+    header("Location: listar.php");
+    exit;
+} else {
+    echo "Erro ao atualizar funcionario: " . mysqli_error($conexao);
+}
 ?>
