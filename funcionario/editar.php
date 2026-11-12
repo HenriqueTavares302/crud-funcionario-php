@@ -4,7 +4,7 @@ require_once("../conexao.php");
 $id = $_GET['id'];
 
 $sql = "select * from funcionario where id = $id";
-$lista = mysqli_query($result, $sql);
+$lista = mysqli_query($conexao, $sql);
 $funcionario = mysqli_fetch_assoc($lista);
 ?>
 <!DOCTYPE html>

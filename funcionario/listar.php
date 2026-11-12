@@ -2,7 +2,7 @@
 require_once("../conexao.php");
 
 $sql = "select * from funcionario order by id";
-$lista = mysqli_query($result, $sql);
+$lista = mysqli_query($conexao, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

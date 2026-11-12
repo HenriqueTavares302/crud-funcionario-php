@@ -9,7 +9,7 @@ $data_admissao = $_POST['data_admissao'];
 
 $sql = "insert into funcionario (nome, email, cargo, salario, data_admissao) values ('$nome', '$email', '$cargo', '$salario', '$data_admissao')";
 
-mysqli_query($result, $sql);
+mysqli_query($conexao, $sql);
 
 header("Location: listar.php");
 ?>
